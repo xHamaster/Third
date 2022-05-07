@@ -565,7 +565,7 @@ async def cleandb(_, CallbackQuery):
 @Client.on_callback_query(filters.regex("cbcmnds"))
 async def cbcmnds(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Resso Music Bot Commands 💡**
+        f"""**Icon Music Bot Commands 💡**
 
 
 • /play (song name) 
@@ -583,13 +583,13 @@ async def cbcmnds(_, query: CallbackQuery):
 • /search (song name) 
 - For searching music
 
-• /song or /resso 
+• /song  
 - For download music
 
 • /menu or /settings
 - For open menu settings
 
-Powered by **Resso Music** !""",
+Powered by **Icon Music** !""",
         reply_markup=InlineKeyboardMarkup(
             [
               [
@@ -603,48 +603,18 @@ async def cbabout(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""**About Resso Music Bot 💡**
 
-Resso Music Bot is the bot designed by some noobs team for playing a high quality and unbreakable music in your groups voice chat.
+Icon Music Bot is the bot designed by some noobs team for playing a high quality and unbreakable music in your groups voice chat.
 
 This bot helps you to play music, to search music from youtube and to download music from youtube server and many more features related to telegram voice chat feature.
 
 **Thanks !**""",
         reply_markup=InlineKeyboardMarkup(
             [
-            [InlineKeyboardButton("Make Your Own Bot", callback_data="cbtuto")],
             [InlineKeyboardButton("🔙  Back Home", callback_data="cbhome")]]
         ),
     )
 
-@Client.on_callback_query(filters.regex("grpabout"))
-async def grpabout(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""**About Section 💡**
 
-Here is the about section for contact bot owner and for making your own bot like this !
-
-**Team @Codexun**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [InlineKeyboardButton("Owned Admin 👨🏻‍💻", user_id=2090451552)],
-            [InlineKeyboardButton("Make Your Own 🤖", callback_data="cbmakeur")],
-            [InlineKeyboardButton("🗑️ Close Menu", callback_data="cls")]]
-        ),
-    )
-@Client.on_callback_query(filters.regex("cbmakeur"))
-async def cbmakeur(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""**Make Your Own Bot 🤖**
-
-About to making your own bot like this, Tutorial Soon available at @Codexun and source code of bot also.
-
-**@TeamCodexun**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            
-            [InlineKeyboardButton("⬅️ Back", callback_data="grpabout")],
-            [InlineKeyboardButton("🗑️ Close Menu", callback_data="cls")]]
-        ),
-    )
 
 @Client.on_callback_query(filters.regex("cbstgs"))
 async def cbstgs(_, query: CallbackQuery):
@@ -670,28 +640,7 @@ You can also open this menu through /menu and /settings command.
             [InlineKeyboardButton("🔙  Back Home", callback_data="cbcmnds")]]
         ),
     )
-@Client.on_callback_query(filters.regex("cbhelp"))
-async def cbhelp(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""**[Resso Music Bot](https://t.me/RessoMusicBot)**
 
-**• Bot Managed By** 
-**- @iSmartAnkit**
-**- @PavanMagar**
-**- @Noob_Aayu**
-
-**• Powered by**
-**- @Codexun**
-**- @TeamCodexun**
-
-**Note : Contact developers only that time if you have really need a help or facing any type of issues. Don't try to waste our and your time by asking useless queries !**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [InlineKeyboardButton("Support", url=f"https://t.me/teamCodexun"),
-             InlineKeyboardButton("Updates", url=f"https://t.me/Codexun")],
-            [InlineKeyboardButton("🔙  Back Home", callback_data="cbhome")]]
-        ),
-    )
 
 @Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
@@ -725,24 +674,11 @@ async def cberror(_, query: CallbackQuery):
 mostly, there wiil be the main error about to music assistant. If you are facing any type of error in your group then that time first make sure @RessoMusicAssistant is available in your group. If not then add it manually and before that make sure also it is not banned in ur chat.\n\n**Thanks !**""",
         reply_markup=InlineKeyboardMarkup(
             [
-            [InlineKeyboardButton("Contact Developers", callback_data="cbhelp")],
               [InlineKeyboardButton("🔙  Back Home", callback_data="cbguide")]]
         ),
     )
 
 
-@Client.on_callback_query(filters.regex("cbtuto"))
-async def cbtuto(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""**Make Your Own Bot Like this💡**
-
-**Tutorial soon at : @Codexun**\n\nThe Tutorial video about to making your own bot like this will be soon available at @Codexun. Also source code and all information about making bot published soon.Stay connected with us at our update channel.\n\n**Thanks !**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [InlineKeyboardButton("Contact Developers", callback_data="cbhelp")],
-              [InlineKeyboardButton("🔙  Back Home", callback_data="cbhome")]]
-        ),
-    )
 
 @Client.on_callback_query(filters.regex("cbhome"))
 async def cbhome(_, query: CallbackQuery):
@@ -1035,7 +971,7 @@ async def play(_, message: Message):
       
 
         return
-    lel = await message.reply("**Processing started..**")
+    lel = await message.reply("🔎")
 
     chid = message.chat.id
 
@@ -1078,12 +1014,12 @@ async def play(_, message: Message):
             try:
                 await ASS_ACC.join_chat(f"{message.chat.username}")
                 await message.reply(
-                    f"**Resso Music Assistant joined !**",
+                    f"**Icon Music Assistant joined !**",
                 )
                 await remove_active_chat(chat_id)
             except Exception as e:
                 await message.reply_text(
-                    f"**Resso Assistant failed to join** Add @RessoMusicAssistant manually in your group.\n\n**Reason**:{e}"
+                    f"**Icon Assistant failed to join** Add @IconAssistant manually in your group.\n\n**Reason**:{e}"
                 )
                 return
         else:
@@ -1094,14 +1030,14 @@ async def play(_, message: Message):
                     link_bokep = f"https://t.me/joinchat/{kontol}"
                 await ASS_ACC.join_chat(link_bokep)
                 await message.reply(
-                    f"**Resso Assistant joined successfully**",
+                    f"**Icon Assistant joined successfully**",
                 )
                 await remove_active_chat(message.chat.id)
             except UserAlreadyParticipant:
                 pass
             except Exception as e:
                 return await message.reply_text(
-                    f"**Assistant failed to join** Add @RessoMusicAssistant manually in your group.\n\n**Reason**:{e}"
+                    f"**Assistant failed to join** Add @IconAssistant manually in your group.\n\n**Reason**:{e}"
                 )
 
     await message.delete()
@@ -1130,10 +1066,17 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="grpabout"),
+            
+            InlineKeyboardButton("▷", callback_data="resumevc"),
+            InlineKeyboardButton("II", callback_data="pausevc"),
+            InlineKeyboardButton("‣‣I", callback_data="skipvc"),
+            InlineKeyboardButton("▢", callback_data="stopvc"),
+            
         ],[
-            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
+            InlineKeyboardButton(text="Volume", callback_data=f"fifth"),
+             InlineKeyboardButton(text="Quality", callback_data=f"high"),
+        ],[
+            InlineKeyboardButton("Close Menu 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -1171,10 +1114,17 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="grpabout"),
+            
+            InlineKeyboardButton("▷", callback_data="resumevc"),
+            InlineKeyboardButton("II", callback_data="pausevc"),
+            InlineKeyboardButton("‣‣I", callback_data="skipvc"),
+            InlineKeyboardButton("▢", callback_data="stopvc"),
+            
         ],[
-            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
+            InlineKeyboardButton(text="Volume", callback_data=f"fifth"),
+             InlineKeyboardButton(text="Quality", callback_data=f"high"),
+        ],[
+            InlineKeyboardButton("Close Menu 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -1266,12 +1216,12 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "**Give me song name !**"
+                "**Hey 👋 Give me a song name to play!**"
             )
         await lel.edit("**Connected successfully !**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("**Downloding your song..**")
+        await lel.edit("**Downloading...📥**")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -1303,8 +1253,15 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="grpabout"),
+            
+            InlineKeyboardButton("▷", callback_data="resumevc"),
+            InlineKeyboardButton("II", callback_data="pausevc"),
+            InlineKeyboardButton("‣‣I", callback_data="skipvc"),
+            InlineKeyboardButton("▢", callback_data="stopvc"),
+            
+        ],[
+            InlineKeyboardButton(text="Volume", callback_data=f"fifth"),
+             InlineKeyboardButton(text="Quality", callback_data=f"high"),
         ],[
             InlineKeyboardButton("Close 🗑️", callback_data="cls"),
         ],
@@ -1409,7 +1366,7 @@ async def play(_, message: Message):
             )
         except Exception:
             return await lel.edit(
-                "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                "Error Joining Voice Chat. Make sure @IconAssistant is not banned in your group if yes then unban him and add manually. Support :- @TeamCodexun"
             )
 
 
@@ -1418,7 +1375,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**[Get Additional Information 💡]({})**\n\n**⑆ User :** **{}**\n**⑆ Group : [{}..](https://t.me/CreatorPavanChat)**".format(
+            caption="**[Get Additional Information 💡]({})**\n\n**⑆ User :** **{}**\n**⑆ Group : [{}..](https://t.me/Codexun)**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
