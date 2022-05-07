@@ -16,10 +16,10 @@ from Codexun.config import BOT_USERNAME
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/e594d98181c2f54b872fd.jpg",
+        photo=f"https://telegra.ph/file/77995226546af3fcc935a.jpg",
         caption=f"""**Welcome {message.from_user.mention()}** 👋
 
-This is the resso music bot, a bot for playing high quality and unbreakable music in your groups voice chat.
+This is the icon music bot, a bot for playing high quality and unbreakable music in your groups voice chat.
 
 Just add me to your group and make a admin with needed admin permission to perform a right actions !
 
